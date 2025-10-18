@@ -1,0 +1,7 @@
+{
+  "python.defaultInterpreterPath": "C:/Users/Admin/AppData/Local/Programs/Python/Python312/python.exe",
+  "python.terminal.activateEnvironment": true,
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}"
+  ]
+}

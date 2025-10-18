@@ -1,2 +1,5 @@
 pygame
 requests
+python-dotenv
+python-socketio[client]
+websocket-client
