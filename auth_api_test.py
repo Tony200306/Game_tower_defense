@@ -28,7 +28,6 @@ def main(argv: Optional[list[str]] = None) -> int:
     args = parser.parse_args(argv)
 
     svc = VorldAuthService(base_url=args.base_url, app_id=args.app_id, debug=args.debug, hash_password=not args.no_hash)
-
     print("Config:")
     print("  base_url:", svc.base_url)
     print("  app_id  :", svc.app_id or "(empty)")

@@ -5,6 +5,7 @@ from world import World
 from turret import Turret
 from button import Button
 import constants as c
+from login import run_login
 
 #initialise pygame
 pg.init()
@@ -15,6 +16,9 @@ clock = pg.time.Clock()
 #create game window
 screen = pg.display.set_mode((c.SCREEN_WIDTH + c.SIDE_PANEL, c.SCREEN_HEIGHT))
 pg.display.set_caption("Tower Defence")
+
+# show login prompt and capture username/password before the game starts
+player_name, _player_password = run_login(screen)
 
 #game variables
 game_over = False
@@ -77,10 +81,12 @@ def display_data():
   screen.blit(logo_image, (c.SCREEN_WIDTH, 400))
   #display data
   draw_text("LEVEL: " + str(world.level), text_font, "grey100", c.SCREEN_WIDTH + 10, 10)
-  screen.blit(heart_image, (c.SCREEN_WIDTH + 10, 35))
-  draw_text(str(world.health), text_font, "grey100", c.SCREEN_WIDTH + 50, 40)
-  screen.blit(coin_image, (c.SCREEN_WIDTH + 10, 65))
-  draw_text(str(world.money), text_font, "grey100", c.SCREEN_WIDTH + 50, 70)
+  # show player name under level
+  draw_text("PLAYER: " + str(player_name), text_font, "grey100", c.SCREEN_WIDTH + 10, 35)
+  screen.blit(heart_image, (c.SCREEN_WIDTH + 10, 65))
+  draw_text(str(world.health), text_font, "grey100", c.SCREEN_WIDTH + 50, 70)
+  screen.blit(coin_image, (c.SCREEN_WIDTH + 10, 95))
+  draw_text(str(world.money), text_font, "grey100", c.SCREEN_WIDTH + 50, 100)
   
 
 def create_turret(mouse_pos):
